@@ -20,7 +20,7 @@
       </div>
       <div class="results">
         <!-- NO RESULTS MESSAGE -->
-        <p class="text-center" v-if="products.length === 0">
+        <p class="text-center" v-if="showNoResults">
           It looks empty... 🙄 You might want to register the product you're
           looking for.
         </p>
@@ -60,7 +60,8 @@ export default {
     return {
       products: [],
       resultsPerPage: 8,
-      numOfResults: 0
+      numOfResults: 0,
+      showNoResults: false
     };
   },
   created() {
@@ -108,6 +109,7 @@ export default {
       axios.get(`/products`, { params: defaultParams }).then(res => {
         this.products = res.data.data;
         this.numOfResults = res.data.length;
+        if (this.products.length === 0) this.showNoResults = true;
       });
     }
   }
