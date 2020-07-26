@@ -21,7 +21,7 @@
       <div class="results">
         <!-- NO RESULTS MESSAGE -->
         <p class="text-center">
-          It looks empty... 🙄 You might want to register the prodict you're
+          It looks empty... 🙄 You might want to register the product you're
           looking for.
         </p>
         <!-- RESULTS -->
