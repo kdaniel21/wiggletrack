@@ -29,7 +29,7 @@ export default function setup() {
         error.response.status === 400 &&
         originalRequest.url === `${process.env.VUE_APP_API_URL}/auth/refresh`
       ) {
-        router.push('/login');
+        router.push('/');
         return Promise.reject(error);
       }
 
