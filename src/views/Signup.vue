@@ -118,19 +118,23 @@ export default {
       if (!isFormValid) return;
 
       const { email, name, password, passwordConfirm } = this;
-      const res = await axios.post('/auth/signup', {
-        email,
-        name,
-        password,
-        passwordConfirm
-      });
+      try {
+        const res = await axios.post('/auth/signup', {
+          email,
+          name,
+          password,
+          passwordConfirm
+        });
 
-      this.successToast('Successfully registered!');
+        this.successToast('Successfully registered!');
 
-      const data = res.data;
-      await this.$store.dispatch('loginUser', data);
+        const data = res.data;
+        await this.$store.dispatch('loginUser', data);
 
-      setTimeout(() => this.$router.push('/'), 1200);
+        setTimeout(() => this.$router.push('/'), 1200);
+      } catch (err) {
+        this.errorToast('Something went wrong! Please try again.');
+      }
     }
   }
 };
