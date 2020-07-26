@@ -20,7 +20,7 @@
       </div>
       <div class="results">
         <!-- NO RESULTS MESSAGE -->
-        <p class="text-center">
+        <p class="text-center" v-if="products.length === 0">
           It looks empty... 🙄 You might want to register the product you're
           looking for.
         </p>
