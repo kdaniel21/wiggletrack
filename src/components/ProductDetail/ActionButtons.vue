@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     isAuthenticated() {
-      return this.$store.getters.isAuthenticated;
+      return this.$store.getters.isLoggedIn;
     },
     isBookmarked() {
       if (!this.isAuthenticated) return;
