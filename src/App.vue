@@ -1,32 +1,59 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <vue-progress-bar></vue-progress-bar>
+    <Header />
+    <transition name="component-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+    <Footer />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import axios from 'axios';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-#nav {
-  padding: 30px;
+export default {
+  components: {
+    Header,
+    Footer
+  },
+  created() {
+    // Configure vue-progress-bar with axios
+    axios.interceptors.request.use(
+      config => {
+        this.$Progress.start();
+        return config;
+      },
+      error => {
+        this.$Progress.fail();
+        return Promise.reject(error);
+      }
+    );
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+    axios.interceptors.response.use(
+      response => {
+        this.$Progress.finish();
+        return response;
+      },
+      error => {
+        this.$Progress.fail();
+        return Promise.reject(error);
+      }
+    );
   }
+};
+</script>
+
+<style>
+/* COMPONENT TRANSITIONS */
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.15s ease-out;
+}
+.component-fade-enter,
+.component-fade-leave-to {
+  opacity: 0;
 }
 </style>
