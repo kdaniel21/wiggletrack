@@ -63,11 +63,14 @@ export default {
     registerProduct() {
       axios
         .post('/products', { url: this.productUrl })
-        .then(() =>
+        .then(() => {
+          // Add to store
+          this.$store.dispatch('bookmarkProduct', this.product._id);
+          // Success message
           this.successToast(
             'Product registered! We will start tracking it in a few minutes.'
-          )
-        )
+          );
+        })
         .catch(() => this.errorToast('Product already registered!'));
     },
     validateUrl(url) {
