@@ -26,7 +26,7 @@ export default function setup() {
       const originalRequest = error.config;
 
       if (
-        error.response.status === 401 &&
+        error.response.status === 400 &&
         originalRequest.url === `${process.env.VUE_APP_API_URL}/auth/refresh`
       ) {
         router.push('/login');
