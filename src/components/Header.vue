@@ -11,7 +11,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item v-for="item in navItems" :key="item.name">
             <router-link :to="item.route">
-              <b-button pill variant="outline-primary">
+              <b-button pill variant="outline-primary" class="btn-block">
                 {{ item.name }}
               </b-button>
             </router-link>
