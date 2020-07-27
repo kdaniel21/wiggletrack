@@ -41,4 +41,10 @@ b-card-subtitle {
   line-height: 24px;
   max-width: 250px;
 }
+@media only screen and (max-width: 600px) {
+  .card {
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
 </style>
