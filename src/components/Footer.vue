@@ -1,7 +1,7 @@
 <template>
   <div id="footer" :class="color">
     2020 &copy; Created by
-    <a href="https://kdaniel21.netlify.app" target="_blank">Daniel Kiss</a>
+    <a href="https://danielkiss.me" target="_blank">Daniel Kiss</a>
   </div>
 </template>
 
