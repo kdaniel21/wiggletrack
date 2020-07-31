@@ -22,36 +22,49 @@ const routes = [
     path: '/',
     component: Main,
     children: [
-      { path: '', component: SearchBar },
-      { path: 'signup', component: Signup, meta: { onlyNoAuth: true } },
-      { path: 'login', component: Login, meta: { onlyNoAuth: true } },
+      { path: '', name: 'Search', component: SearchBar },
+      {
+        path: 'signup',
+        name: 'Sign Up',
+        component: Signup,
+        meta: { onlyNoAuth: true }
+      },
+      {
+        path: 'login',
+        name: 'Login',
+        component: Login,
+        meta: { onlyNoAuth: true }
+      },
       {
         path: 'forgot-password',
+        name: 'Forgot Password',
         component: ForgotPassword,
         meta: { onlyNoAuth: true }
       },
       {
         path: 'reset-password/:token',
+        name: 'Reset Password',
         component: ResetPassword,
         meta: { onlyNoAuth: true }
       }
     ]
   },
-  { path: '/products', component: SearchResult },
+  { path: '/products', name: 'Search Results', component: SearchResult },
   {
     path: '/products/new',
+    name: 'Add Product',
     meta: { requiresAuth: true },
     component: RegisterProduct
   },
-  { path: '/products/:id', component: ProductDetail },
+  { path: '/products/:id', name: 'Product', component: ProductDetail },
   {
     path: '/profile',
     component: Profile,
     meta: { requiresAuth: true },
     children: [
       { path: '', redirect: 'products' },
-      { path: 'products', component: MyProducts },
-      { path: 'settings', component: Settings }
+      { path: 'products', name: 'My Products', component: MyProducts },
+      { path: 'settings', name: 'Profile Settings', component: Settings }
     ]
   },
   { path: '*', redirect: '/' }

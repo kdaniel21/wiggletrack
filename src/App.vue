@@ -3,6 +3,7 @@
     <div style="min-height: 96vh">
       <vue-progress-bar></vue-progress-bar>
       <Header />
+      <bug-report />
       <transition name="component-fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -15,11 +16,13 @@
 import axios from 'axios';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import BugReport from './components/BugReport';
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    BugReport
   },
   created() {
     // Configure vue-progress-bar with axios
