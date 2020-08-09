@@ -4,27 +4,16 @@
       class="bug-report-btn d-none d-md-block"
       variant="primary"
       v-b-modal.bug-report-modal
-      >Report a bug</b-button
-    >
+    >Report a bug</b-button>
 
-    <b-modal
-      id="bug-report-modal"
-      title="Submit bug report"
-      @show="resetModal"
-      @ok="handleSend"
-    >
+    <b-modal id="bug-report-modal" title="Submit bug report" @show="resetModal" @ok="handleSend">
       <p>
         Encountered a bug? I would really appreciate if you could share it with
         me so I could fix it.
       </p>
       <form ref="form" @submit.stop.prevent="submitReport">
         <b-form-group label="Type" label-for="type-input">
-          <b-form-select
-            v-model="topic"
-            :options="topics"
-            id="type-input"
-            required
-          ></b-form-select>
+          <b-form-select v-model="topic" :options="topics" id="type-input" required></b-form-select>
         </b-form-group>
         <b-form-group label="Description" label-for="description-input">
           <b-form-textarea
@@ -37,26 +26,16 @@
         </b-form-group>
 
         <!-- ADVANCED INFORMATION -->
-        <b-button v-b-toggle.advanced-info class="btn-block" variant="primary"
-          >Advanced Details</b-button
-        >
+        <b-button v-b-toggle.advanced-info class="btn-block" variant="primary">Advanced Details</b-button>
         <b-collapse id="advanced-info" class="mt-2">
           <b-form-group label="Browser" label-for="browser-input">
-            <b-form-input
-              id="browser-input"
-              v-model="browser"
-              required
-            ></b-form-input>
+            <b-form-input id="browser-input" v-model="browser" required></b-form-input>
           </b-form-group>
           <b-form-group label="Operation System" label-for="os-input">
             <b-form-input id="os-input" v-model="os" required></b-form-input>
           </b-form-group>
           <b-form-group label="Page name" label-for="page-name-input">
-            <b-form-input
-              id="page-name-input"
-              v-model="page"
-              required
-            ></b-form-input>
+            <b-form-input id="page-name-input" v-model="page" required></b-form-input>
           </b-form-group>
         </b-collapse>
       </form>

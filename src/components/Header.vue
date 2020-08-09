@@ -11,9 +11,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item v-for="item in navItems" :key="item.name">
             <router-link :to="item.route">
-              <b-button pill variant="outline-primary" class="btn-block">
-                {{ item.name }}
-              </b-button>
+              <b-button pill variant="outline-primary" class="btn-block">{{ item.name }}</b-button>
             </router-link>
           </b-nav-item>
           <!-- HAS A SLIGHTLY DIFFERENT FUNCTIONALITY THAT'S WHY NOT INCLUDED IN THE V-FOR -->
@@ -21,10 +19,10 @@
             <b-button
               pill
               variant="outline-primary"
+              class="btn-block"
               v-if="isUserLoggedIn"
               @click="logout"
-              >Logout</b-button
-            >
+            >Logout</b-button>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
