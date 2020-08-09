@@ -45,6 +45,7 @@ export default {
 .card-deck {
   max-width: 100%;
   flex-flow: wrap;
+  justify-content: center;
 }
 b-card-subtitle {
   line-height: 24px;
