@@ -14,21 +14,10 @@
 
     <!-- PRODUCT PREVIEW -->
     <div class="preview">
-      <b-card
-        :img-src="`${productPreview.img}?w=250`"
-        img-top
-        v-if="productPreview"
-        class="mt-5"
-      >
+      <b-card :img-src="`${productPreview.img}?w=250`" img-top v-if="productPreview" class="mt-5">
         <div>{{ productPreview.name }}</div>
 
-        <b-button
-          pill
-          variant="primary"
-          class="float-right"
-          @click="registerProduct"
-          >Register</b-button
-        >
+        <b-button pill variant="primary" class="float-right" @click="registerProduct">Register</b-button>
       </b-card>
     </div>
   </b-container>
@@ -65,13 +54,16 @@ export default {
         .post('/products', { url: this.productUrl })
         .then(() => {
           // Add to store
-          this.$store.dispatch('bookmarkProduct', this.product._id);
+          this.$store.dispatch('bookmarkProduct', this.productPreview);
           // Success message
           this.successToast(
             'Product registered! We will start tracking it in a few minutes.'
           );
         })
-        .catch(() => this.errorToast('Product already registered!'));
+        .catch(err => {
+          console.log(err);
+          this.errorToast('Product already registered!');
+        });
     },
     validateUrl(url) {
       if (!url) {
