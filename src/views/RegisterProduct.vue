@@ -1,7 +1,8 @@
 <template>
   <b-container id="register-product">
-    <b-form inline @submit.prevent="checkProduct">
-      <h2 class="display-5">Enter the product URL</h2>
+    <!-- URL INPUT FORM -->
+    <h2 class="display-5">Enter the product URL</h2>
+    <b-form @submit.prevent="checkProduct">
       <b-form-input
         id="url-input"
         class="mr-3"
@@ -9,15 +10,32 @@
         v-model="productUrl"
         required
       ></b-form-input>
-      <b-button pill variant="primary" type="submit">Preview</b-button>
+      <b-button
+        pill
+        variant="primary"
+        type="submit"
+        class="float-right btn-block-xs-only"
+        >Preview</b-button
+      >
     </b-form>
 
     <!-- PRODUCT PREVIEW -->
     <div class="preview">
-      <b-card :img-src="`${productPreview.img}?w=250`" img-top v-if="productPreview" class="mt-5">
+      <b-card
+        :img-src="`${productPreview.img}?w=250`"
+        img-top
+        v-if="productPreview"
+        class="mt-5"
+      >
         <div>{{ productPreview.name }}</div>
 
-        <b-button pill variant="primary" class="float-right" @click="registerProduct">Register</b-button>
+        <b-button
+          pill
+          variant="primary"
+          class="float-right"
+          @click="registerProduct"
+          >Register</b-button
+        >
       </b-card>
     </div>
   </b-container>
@@ -85,10 +103,6 @@ export default {
 </script>
 
 <style scoped>
-.preview {
-  display: flex;
-  justify-content: center;
-}
 .card {
   max-width: 250px;
 }
@@ -102,10 +116,11 @@ div.container-md {
   font-weight: 500;
   text-align: center;
 }
-input {
-  width: min(55rem, 90vw) !important;
-}
 form {
-  justify-content: center;
+  width: min(100%, 60rem);
+}
+input {
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 </style>

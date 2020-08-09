@@ -36,11 +36,12 @@
         v-model="passwordConfirm"
       ></b-form-input>
     </b-form-group>
-    <b-button type="submit" pill variant="primary" class="float-right"
-      ><i class="fa fa-user-edit"></i> Update Password</b-button
-    >
+    <b-button type="submit" pill variant="primary" class="float-right">
+      <i class="fa fa-user-edit"></i> Update Password
+    </b-button>
   </b-form>
 </template>
+
 <script>
 import axios from 'axios';
 

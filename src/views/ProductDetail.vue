@@ -38,7 +38,6 @@
               v-if="showChart && selectedSize && selectedColor"
             ></font-awesome-icon>
             <font-awesome-icon icon="chart-line" v-else></font-awesome-icon>
-
             {{
               showChart && selectedSize && selectedColor
                 ? 'Show Image'
@@ -60,7 +59,8 @@
           :options="sizes"
           :disabled="!selectedColor"
           class="mb-4"
-          ><template v-slot:first>
+        >
+          <template v-slot:first>
             <b-form-select-option :value="null" disabled
               >Please select a size</b-form-select-option
             >
