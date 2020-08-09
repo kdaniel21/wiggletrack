@@ -2,28 +2,20 @@
   <div id="my-products">
     <product-list :products="products">
       <template v-slot:img-btn="slotData">
-        <b-button
-          class="delete-btn"
-          @click="showConfirmationModal(slotData.product._id)"
-          ><i class="fas fa-trash"></i
-        ></b-button>
+        <b-button class="delete-btn" @click="showConfirmationModal(slotData.product._id)">
+          <i class="fas fa-trash"></i>
+        </b-button>
       </template>
 
       <template v-slot:details="slotData">
-        <b-badge
-          pill
-          :variant="slotData.product.notifications ? 'primary' : 'danger'"
-          >Notifications
-          {{ slotData.product.notifications ? 'enabled' : 'disabled' }}</b-badge
-        >
+        <b-badge pill :variant="slotData.product.notifications ? 'primary' : 'danger'">
+          Notifications
+          {{ slotData.product.notifications ? 'enabled' : 'disabled' }}
+        </b-badge>
       </template>
     </product-list>
     <!-- CONFIRMATION MODAL -->
-    <b-modal
-      id="confirmation-modal"
-      title="Are you sure?"
-      @ok="unbookmarkProduct()"
-    >
+    <b-modal id="confirmation-modal" title="Are you sure?" @ok="unbookmarkProduct()">
       <p>
         Are you sure that you want to unbookmark this product? This will disable
         any notifications.
