@@ -13,7 +13,12 @@
 
         <slot name="details" :product="product"></slot>
         <router-link :to="`/products/${product._id}`">
-          <b-button pill variant="primary" class="float-right mt-1">View Product</b-button>
+          <b-button
+            pill
+            variant="primary"
+            class="float-right mt-1 btn-block-xs-only"
+            >View Product</b-button
+          >
         </router-link>
       </b-card>
     </b-card-group>
