@@ -12,7 +12,9 @@
         "
       >
       </i>
-      <span> ({{ product.rating.quantity }} ratings)</span>
+      <a :href="`${this.product.url}#reviewsSection`" class="text-dark">
+        ({{ product.rating.quantity }} ratings)</a
+      >
       <b-badge
         class="ml-2"
         variant="danger"
