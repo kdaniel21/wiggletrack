@@ -4,7 +4,7 @@
       id="email"
       label="Email address"
       label-for="email-input"
-      description="This email address is used to log in."
+      description="This email address is used to log in and this is where we send the notifications."
     >
       <b-form-input
         id="email-input"
