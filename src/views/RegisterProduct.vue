@@ -77,6 +77,10 @@ export default {
           this.successToast(
             'Product registered! We will start tracking it in a few minutes.'
           );
+
+          // Reset preview
+          this.productPreview = null;
+          this.productUrl = '';
         })
         .catch(err => {
           console.log(err);
