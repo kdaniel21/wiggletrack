@@ -1,19 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store/index';
-import Main from '../views/Main.vue';
-import SearchResult from '../views/SearchResult.vue';
-import ProductDetail from '../views/ProductDetail.vue';
-import Signup from '../views/Signup.vue';
-import SearchBar from '../components/SearchBar.vue';
-import Login from '../views/Login.vue';
-import Profile from '../views/Profile.vue';
-import MyProducts from '../components/MyProducts';
 import autologin from '../helpers/autologin';
-import Settings from '../components/Profile/Settings';
-import RegisterProduct from '../views/RegisterProduct';
-import ForgotPassword from '../views/ForgotPassword';
-import ResetPassword from '../views/ResetPassword';
+const Main = () =>
+  import(/* webpackChunkName: "product-view" */ '../views/Main.vue');
+const SearchResult = () =>
+  import(/* webpackChunkName: "product-view" */ '../views/SearchResult.vue');
+const ProductDetail = () =>
+  import(/* webpackChunkName: "product-view" */ '../views/ProductDetail.vue');
+const Signup = () => import('../views/Signup.vue');
+const SearchBar = () =>
+  import(/* webpackChunkName: "product-view" */ '../components/SearchBar.vue');
+const Login = () => import('../views/Login.vue');
+const Profile = () =>
+  import(/* webpackChunkName: "profile" */ '../views/Profile.vue');
+const MyProducts = () =>
+  import(/* webpackChunkName: "profile" */ '../components/MyProducts');
+const Settings = () =>
+  import(/* webpackChunkName: "profile" */ '../components/Profile/Settings');
+const RegisterProduct = () => import('../views/RegisterProduct');
+const ForgotPassword = () => import('../views/ForgotPassword');
+const ResetPassword = () => import('../views/ResetPassword');
 
 Vue.use(VueRouter);
 
