@@ -50,7 +50,7 @@
         <b-form-select v-model="selectedColor" :options="colors" class="mb-2">
           <template v-slot:first>
             <b-form-select-option :value="null" disabled
-              >Please select a color</b-form-select-option
+              >Please select a variant</b-form-select-option
             >
           </template>
         </b-form-select>
