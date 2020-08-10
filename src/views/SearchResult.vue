@@ -33,15 +33,11 @@
           </template>
         </product-list>
         <!-- PAGINATION -->
-        <div class="overflow-auto" v-if="numOfPages > 1">
-          <b-pagination-nav
-            :link-gen="linkGen"
-            :number-of-pages="numOfPages"
-            use-router
-            class="mt-3"
-            align="center"
-          ></b-pagination-nav>
-        </div>
+        <Pagination
+          :numOfResults="numOfResults"
+          :resultsPerPage="resultsPerPage"
+          @page-change="this.fetchProducts"
+        />
       </div>
     </b-container>
   </div>
@@ -50,16 +46,18 @@
 <script>
 import axios from 'axios';
 import ProductList from '../components/ProductList';
+import Pagination from '../components/Pagination';
 
 export default {
   name: 'SearchResult',
   components: {
-    ProductList
+    ProductList,
+    Pagination
   },
   data() {
     return {
       products: [],
-      resultsPerPage: 8,
+      resultsPerPage: 4,
       numOfResults: 0,
       showNoResults: false
     };
@@ -73,19 +71,8 @@ export default {
         ? `Results for '${this.$route.query.search}'`
         : 'All Products';
     },
-    currentPage() {
-      return this.$route.query.page || 1;
-    },
-    numOfPages() {
-      return Math.ceil(this.numOfResults / this.resultsPerPage);
-    },
     isAuthenticated() {
       return this.$store.getters.isLoggedIn;
-    }
-  },
-  watch: {
-    currentPage() {
-      this.fetchProducts();
     }
   },
   methods: {
@@ -94,12 +81,9 @@ export default {
         ? `€${range.min / 100}`
         : `€${range.min / 100} - €${range.max / 100}`;
     },
-    linkGen(pageNum) {
-      return pageNum === 1 ? '?' : `?page=${pageNum}`;
-    },
-    fetchProducts() {
+    fetchProducts(currentPage = 1) {
       const defaultParams = {
-        page: this.currentPage,
+        page: currentPage,
         limit: this.resultsPerPage
       };
       // Add search string if necessary
@@ -128,8 +112,5 @@ img {
   max-height: 100px;
   height: auto;
   widows: auto;
-}
-.pagination.b-pagination {
-  justify-content: center;
 }
 </style>
