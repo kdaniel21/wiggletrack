@@ -105,6 +105,7 @@ export default {
 <style scoped>
 .card {
   max-width: 250px;
+  margin: auto;
 }
 img {
   max-height: 248px;
