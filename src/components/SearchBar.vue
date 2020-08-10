@@ -1,7 +1,10 @@
 <template>
   <b-container id="search-bar" fluid="md">
     <h1 class="display-4 mb-3">Find The Greatest Deals</h1>
-    <h3 class="mb-5">Price Tracker & History for Wiggle.com</h3>
+    <h3 class="mb-5">
+      com Price Tracker & History for
+      <span class="text-primary">Wiggle.com</span>
+    </h3>
     <b-form inline @submit.prevent="search()">
       <b-form-input
         placeholder="Search Castelli jersey"
