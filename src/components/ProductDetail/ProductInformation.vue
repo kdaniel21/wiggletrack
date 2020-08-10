@@ -13,6 +13,14 @@
       >
       </i>
       <span> ({{ product.rating.quantity }} ratings)</span>
+      <b-badge
+        class="ml-2"
+        variant="danger"
+        v-if="!this.product.active"
+        v-b-tooltip.hover
+        title="This product is not tracked anymore."
+        >Not Active</b-badge
+      >
     </div>
     <!-- PRODUCT DESCRIPTION -->
     <p class="product-description mt-3">{{ product.summary }}</p>
